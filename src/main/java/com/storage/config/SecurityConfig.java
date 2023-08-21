@@ -1,6 +1,6 @@
 package com.storage.config;
 
-import jakarta.servlet.Filter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -9,12 +9,16 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
+    @Autowired
     private JwtAuthenticationFilter jwtAuthFilter;
+
+    @Autowired
     private AuthenticationProvider authenticationProvider;
 
     @Bean
@@ -22,7 +26,7 @@ public class SecurityConfig {
         http
                 .csrf( csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("")
+                        .requestMatchers(antMatcher("/auth/**"))
                         .permitAll()
                         .anyRequest()
                         .authenticated())
