@@ -1,7 +1,6 @@
 package com.storage.services;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import com.storage.exceptions.IngredientNotFoundException;
@@ -18,7 +17,7 @@ public class IngredientService {
 	private IngredientRepository ingredientRepository;
 
 	public Ingredient findById(UUID id) {
-		return  ingredientRepository.findById(id).orElseThrow(IngredientNotFoundException::new);
+		return ingredientRepository.findById(id).orElseThrow(IngredientNotFoundException::new);
 	}
 
 	public List<Ingredient> findAll() {

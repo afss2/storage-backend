@@ -1,6 +1,5 @@
 package com.storage.config;
 
-import com.storage.entities.User;
 import com.storage.services.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

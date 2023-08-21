@@ -1,6 +1,5 @@
 package com.storage.repositories;
 
-import com.storage.entities.Ingredient;
 import com.storage.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
