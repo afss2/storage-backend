@@ -1,4 +1,4 @@
-package com.storage.controller;
+package com.storage.controller.auth;
 
 import com.storage.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,8 @@
 package com.storage.services;
 
-import com.storage.controller.AuthenticationRequest;
-import com.storage.controller.AuthenticationResponse;
-import com.storage.controller.RegisterRequest;
+import com.storage.controller.auth.AuthenticationRequest;
+import com.storage.controller.auth.AuthenticationResponse;
+import com.storage.controller.auth.RegisterRequest;
 import com.storage.entities.Role;
 import com.storage.entities.User;
 import com.storage.repositories.UserRepository;

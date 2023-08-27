@@ -18,10 +18,15 @@ public class Ingredient implements Serializable {
 	private int quantity;
 	private int idealQuantity;
 
-	public Ingredient(String name, int quantity, int idealQuantity) {
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	public Ingredient(String name, int quantity, int idealQuantity, User user) {
 		this.name = name;
 		this.quantity = quantity;
 		this.idealQuantity = idealQuantity;
+		this.user = user;
 	}
 
 	public Ingredient() {

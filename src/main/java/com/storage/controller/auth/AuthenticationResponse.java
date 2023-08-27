@@ -1,4 +1,4 @@
-package com.storage.controller;
+package com.storage.controller.auth;
 
 
 import java.util.Objects;

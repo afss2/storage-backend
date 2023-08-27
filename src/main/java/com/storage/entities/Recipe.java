@@ -19,11 +19,15 @@ public class Recipe implements Serializable {
 	private List<Ingredient> ingredients;
 	private String name;
 	private Instant time;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-	public Recipe(List<Ingredient> ingredients, String name, Instant time) {
+	public Recipe(List<Ingredient> ingredients, String name, Instant time, User user) {
 		this.ingredients = ingredients;
 		this.name = name;
 		this.time = time;
+		this.user = user;
 	}
 
 	public Recipe() {
