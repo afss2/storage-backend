@@ -1,5 +1,6 @@
 package com.storage.services;
 
+import com.storage.entities.Ingredient;
 import com.storage.entities.Recipe;
 import com.storage.exceptions.RecipeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,10 @@ public class RecipeService {
 
 	public void delete(UUID id) {
 		recipeRepository.deleteById(id);
+	}
+
+	public List<Recipe> findByUserEmail(String email) {
+		List<Recipe> recipes = recipeRepository.findByUserEmail(email).orElseThrow();
+		return recipes;
 	}
 }

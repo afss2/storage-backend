@@ -1,6 +1,7 @@
 package com.storage.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import com.storage.exceptions.IngredientNotFoundException;
@@ -43,6 +44,11 @@ public class IngredientService {
 
 	public void delete(UUID id) {
 		ingredientRepository.deleteById(id);
+	}
+
+	public List<Ingredient> findByUserEmail(String email) {
+		List<Ingredient> ingredients = ingredientRepository.findByUserEmail(email).orElseThrow();
+		return ingredients;
 	}
 
 }

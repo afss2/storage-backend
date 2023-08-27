@@ -9,6 +9,7 @@ import com.storage.repositories.IngredientRepository;
 import com.storage.repositories.RecipeRepository;
 import com.storage.repositories.UserRepository;
 import com.storage.services.AuthenticationService;
+import com.storage.services.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -53,6 +54,8 @@ public class TestConfig implements CommandLineRunner {
         ingredientService.save(salsa);
         ingredientService.save(cenoura);
         recipeService.save(recipe);
+
+        List<Ingredient> igs = ingredientService.findByUserEmail(user.getEmail()).orElseThrow();
 
     }
 }
